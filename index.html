@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>StartTiny — Free Procrastination Timer & Anti-Procrastination App</title>
+  <meta name="description" content="Free procrastination timer and anti-procrastination app for students and adults. StartTiny is an open-source student focus timer with tasks, deadlines, brain-dump notes, and custom sessions. No account required.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://g4hio.github.io/starttiny/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="StartTiny — Free Procrastination Timer & Anti-Procrastination App">
+  <meta property="og:description" content="A free, open-source focus and anti-procrastination tool for students, professionals, and anyone who struggles to get started.">
+  <meta property="og:url" content="https://g4hio.github.io/starttiny/">
+  <meta property="og:site_name" content="StartTiny">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="StartTiny — Free Procrastination Timer">
+  <meta name="twitter:description" content="Free, private, open-source anti-procrastination app with a flexible student focus timer, tasks, and a brain dump.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">STARTTINY</div>
+        <h1>Start tiny.<br>Stay focused.</h1>
+        <p>Stop procrastinating. Start with one tiny step. StartTiny is a free, open-source anti-procrastination app and student focus timer for students, professionals, and anyone who struggles to get started. Use a flexible procrastination timer, organize tasks and deadlines, and park distracting thoughts in a private brain dump.</p>
+      </div>
+      <div class="header-stats">
+        <div><strong id="sessionCount">0</strong><span>sessions</span></div>
+        <div><strong id="openCount">0</strong><span>open tasks</span></div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <section class="panel timer-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Focus timer</h2>
+            <p>Choose a preset or create your own.</p>
+          </div>
+          <button id="focusModeBtn" class="ghost-btn">Focus mode</button>
+        </div>
+
+        <div class="mode-row">
+          <button class="mode-btn active" data-mode="focus">Focus</button>
+          <button class="mode-btn" data-mode="break">Break</button>
+          <span id="durationLabel" class="pill">25 min</span>
+        </div>
+
+        <div class="presets">
+          <button data-focus="10" data-break="2">10 / 2</button>
+          <button class="selected" data-focus="25" data-break="5">25 / 5</button>
+          <button data-focus="40" data-break="10">40 / 10</button>
+          <button data-focus="50" data-break="10">50 / 10</button>
+        </div>
+
+        <div class="custom-row">
+          <label>Focus <input id="customFocus" type="number" min="1" max="240" value="40"></label>
+          <label>Break <input id="customBreak" type="number" min="1" max="120" value="10"></label>
+          <button id="applyCustom">Apply</button>
+        </div>
+
+        <div class="timer-card">
+          <div class="timer-caption">TIME LEFT</div>
+          <div id="timerDisplay">25:00</div>
+          <div class="progress-track"><div id="timerProgress"></div></div>
+        </div>
+
+        <div class="action-row">
+          <button id="startBtn" class="primary">Start</button>
+          <button id="pauseBtn">Pause</button>
+          <button id="resetBtn">Reset</button>
+          <button id="skipBtn" class="ghost-btn">Skip</button>
+        </div>
+
+        <div class="helper-grid">
+          <article>
+            <span>STARTER PROMPT</span>
+            <p id="promptText">Open the document and write the first messy sentence.</p>
+            <button id="newPrompt" class="link-btn">New tiny start</button>
+          </article>
+          <article>
+            <span>GET UNSTUCK</span>
+            <p id="unstuckText">Pick one task and start tiny.</p>
+            <button id="helpBtn" class="link-btn">Help me start</button>
+          </article>
+        </div>
+
+        <div class="energy">
+          <div class="energy-title">How's your energy?</div>
+          <div class="energy-buttons">
+            <button data-energy="tired">Tired</button>
+            <button data-energy="okay" class="selected">Okay</button>
+            <button data-energy="energized">Energized</button>
+            <button data-energy="overwhelmed">Overwhelmed</button>
+          </div>
+          <p id="energyTip">Start with one clear task and a normal 25-minute sprint.</p>
+        </div>
+      </section>
+
+      <section class="panel tasks-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Tasks</h2>
+            <p>Deadlines are optional. You control the order.</p>
+          </div>
+        </div>
+
+        <div class="task-input-row">
+          <input id="taskInput" placeholder="e.g. revise maths notes" maxlength="200">
+          <select id="priorityInput">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <input id="deadlineInput" type="date" aria-label="Deadline">
+          <button id="addTask">Add</button>
+        </div>
+
+        <div class="sort-row">
+          <label>Arrange by
+            <select id="sortSelect">
+              <option value="smart">Smart</option>
+              <option value="deadline">Deadline</option>
+              <option value="priority">Priority</option>
+              <option value="newest">Newest added</option>
+              <option value="oldest">Oldest added</option>
+              <option value="completion">Completion</option>
+            </select>
+          </label>
+          <span id="taskSummary">0 done · 0 left</span>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+      </section>
+    </section>
+
+    <section class="panel notes-panel">
+      <div class="panel-head">
+        <div>
+          <h2>Notes / brain dump</h2>
+          <p>Put distracting thoughts here so they don't have to stay in your head.</p>
+        </div>
+        <span class="local-badge">Private · saved in this browser</span>
+      </div>
+      <div class="note-input-row">
+        <textarea id="noteInput" rows="3" maxlength="1000" placeholder="Ideas, reminders, links, random thoughts..."></textarea>
+        <div class="note-actions">
+          <button id="addNote" class="primary">Add note</button>
+          <button id="clearNotes" class="ghost-btn">Clear all</button>
+        </div>
+      </div>
+      <div id="noteList" class="note-list"></div>
+    </section>
+
+    <section class="panel info-panel" aria-labelledby="about-starttiny">
+      <div class="panel-head">
+        <div>
+          <h2 id="about-starttiny">A free anti-procrastination app that makes starting easier</h2>
+          <p>Starting is often harder than the actual task. StartTiny is a free procrastination timer and student focus timer that reduces that first barrier: choose one task, pick a manageable session, and begin.</p>
+        </div>
+      </div>
+      <div class="helper-grid">
+        <article>
+          <span>FLEXIBLE FOCUS TIMER</span>
+          <p>Use 10/2, 25/5, 40/10, 50/10, or create your own focus and break lengths. It works as a study timer, work timer, or Pomodoro alternative.</p>
+        </article>
+        <article>
+          <span>TASKS AND DEADLINES</span>
+          <p>Add tasks, priorities, and optional deadlines. Sort by deadline, priority, newest, oldest, completion, or Smart Mode.</p>
+        </article>
+        <article>
+          <span>PRIVATE BRAIN DUMP</span>
+          <p>Write down reminders, distractions, ideas, or worries so they stop competing for attention. Notes stay in this browser.</p>
+        </article>
+        <article>
+          <span>HELP ME START</span>
+          <p>When a task feels overwhelming, StartTiny turns it into a smaller first action instead of asking for more motivation.</p>
+        </article>
+      </div>
+      <div class="helper-grid">
+        <article><span>FOR STUDENTS</span><p>Use this student productivity tool for homework, revision, essays, coding, reading, exam preparation, and long-term assignments.</p></article>
+        <article><span>FOR ADULTS & WORK</span><p>Use it for work projects, writing, programming, applications, personal projects, household tasks, and anything you keep putting off.</p></article>
+      </div>
+      <div class="helper-grid">
+        <article><span>PRIVATE BY DESIGN</span><p>No account, backend, advertising, or analytics. Your tasks, notes, and settings stay in this browser using local storage.</p></article>
+        <article><span>FREE & OPEN SOURCE</span><p>Released under the MIT License. Inspect the code, fork the project, and host your own version.</p></article>
+      </div>
+      <nav aria-label="StartTiny guides" style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap">
+        <a href="procrastination-timer.html">Free procrastination timer</a>
+        <a href="study-timer.html">Free study timer</a>
+        <a href="student-productivity.html">Student productivity tool</a>
+        <a href="procrastination-help.html">How to stop procrastinating</a>
+        <a href="pomodoro-alternative.html">Pomodoro alternative</a>
+        <a href="https://github.com/g4hio/starttiny">GitHub source</a>
+      </nav>
+    </section>
+
+    <footer>
+      <span>Free & open source · no account required · local-first</span>
+      <button id="clearData" class="danger-link">Reset all local data</button>
+    </footer>
+  </main>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "StartTiny",
+    "alternateName": ["Start Tiny", "StartTiny focus timer"],
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://g4hio.github.io/starttiny/",
+    "description": "Free procrastination timer and anti-procrastination app for students and adults. Flexible student focus timer, tasks, deadlines, sorting, and a private brain dump. No account required.",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "license": "https://opensource.org/licenses/MIT",
+    "featureList": [
+      "Flexible focus timer",
+      "Custom focus and break lengths",
+      "Tasks with priorities and optional deadlines",
+      "Smart task sorting",
+      "Private brain-dump notes",
+      "Help Me Start prompts",
+      "Focus mode",
+      "Energy check",
+      "Local-first privacy"
+    ]
+  }
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

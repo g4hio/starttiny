@@ -1,0 +1,26 @@
+# StartTiny
+
+> StartTiny is a free, open-source anti-procrastination app and focus timer for students, professionals, and anyone who struggles to get started.
+
+StartTiny is a private, local-first web tool. It does not require an account or a server. Tasks, notes, and settings stay in the browser.
+
+Use it as a free procrastination timer, a student focus timer, a study timer, a Pomodoro alternative with custom intervals, and a lightweight productivity tool.
+
+## Pages
+
+- [StartTiny home / app](https://g4hio.github.io/starttiny/): live focus timer, tasks, deadlines, sorting, brain dump, Help Me Start, energy check, and focus mode
+- [Free procrastination timer](https://g4hio.github.io/starttiny/procrastination-timer.html)
+- [Free study timer](https://g4hio.github.io/starttiny/study-timer.html)
+- [Student productivity tool](https://g4hio.github.io/starttiny/student-productivity.html)
+- [How to stop procrastinating](https://g4hio.github.io/starttiny/procrastination-help.html)
+- [Pomodoro alternative](https://g4hio.github.io/starttiny/pomodoro-alternative.html)
+- [Source code](https://github.com/g4hio/starttiny): MIT License, HTML, CSS, and JavaScript
+
+## Product facts
+
+- Free and open source (MIT)
+- No ads, no analytics, no required login
+- Flexible timer presets: 10/2, 25/5, 40/10, 50/10, plus custom lengths
+- Tasks with priority and optional deadlines
+- Private brain-dump notes
+- Built for students, adults, work, and everyday tasks

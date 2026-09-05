@@ -4,6 +4,8 @@
 
 StartTiny is a free, open-source, local-first anti-procrastination tool. It combines a flexible focus timer, task list, optional deadlines, task sorting, and a private brain-dump notes area.
 
+🚀 Try StartTiny → [LIVE WEBSITE]
+
 ## Features
 
 - Focus and break timer

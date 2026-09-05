@@ -1,4 +1,4 @@
-# StartTiny
+# StartTiny — Free Procrastination & Focus Timer for Students
 
 **Start tiny. Stay focused.**
 

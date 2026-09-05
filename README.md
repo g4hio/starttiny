@@ -8,15 +8,15 @@ StartTiny is a free, open-source, local-first anti-procrastination tool. It comb
 
 ## Features
 
-• Flexible focus timer
-• Custom work/break periods
-• Tasks + deadlines
-• Smart task sorting
-• Private brain dump
-• Focus mode
-• No account required
-• No ads
-• Open source
+- Flexible focus timer
+- Custom work/break periods
+- Tasks + deadlines
+- Smart task sorting
+- Private brain dump
+- Focus mode
+- No account required
+- No ads
+- Open source
 
 ## Run locally
 

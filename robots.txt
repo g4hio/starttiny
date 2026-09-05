@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://g4hio.github.io/starttiny/sitemap.xml

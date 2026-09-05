@@ -17,6 +17,9 @@ StartTiny is a free, open-source, local-first anti-procrastination tool for stud
 - No account required
 - No ads
 - Open source
+<img width="2366" height="1456" alt="image" src="https://github.com/user-attachments/assets/65c9d5ae-4aba-4e4c-b40a-f413bd269a91" />
+<img width="2380" height="1324" alt="image" src="https://github.com/user-attachments/assets/8d78ffe6-b1bc-4857-954e-d405ddd59b56" />
+
 
 ## Run locally
 

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="StartTiny is a free, private anti-procrastination focus tool with tasks, deadlines, notes and flexible timers.">
+  <title>StartTiny — Start tiny. Stay focused.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">STARTTINY</div>
+        <h1>Start tiny.<br>Stay focused.</h1>
+        <p>Add tasks, park distractions in notes, and use a timer that fits the way you actually work.</p>
+      </div>
+      <div class="header-stats">
+        <div><strong id="sessionCount">0</strong><span>sessions</span></div>
+        <div><strong id="openCount">0</strong><span>open tasks</span></div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <section class="panel timer-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Focus timer</h2>
+            <p>Choose a preset or create your own.</p>
+          </div>
+          <button id="focusModeBtn" class="ghost-btn">Focus mode</button>
+        </div>
+
+        <div class="mode-row">
+          <button class="mode-btn active" data-mode="focus">Focus</button>
+          <button class="mode-btn" data-mode="break">Break</button>
+          <span id="durationLabel" class="pill">25 min</span>
+        </div>
+
+        <div class="presets">
+          <button data-focus="10" data-break="2">10 / 2</button>
+          <button class="selected" data-focus="25" data-break="5">25 / 5</button>
+          <button data-focus="40" data-break="10">40 / 10</button>
+          <button data-focus="50" data-break="10">50 / 10</button>
+        </div>
+
+        <div class="custom-row">
+          <label>Focus <input id="customFocus" type="number" min="1" max="240" value="40"></label>
+          <label>Break <input id="customBreak" type="number" min="1" max="120" value="10"></label>
+          <button id="applyCustom">Apply</button>
+        </div>
+
+        <div class="timer-card">
+          <div class="timer-caption">TIME LEFT</div>
+          <div id="timerDisplay">25:00</div>
+          <div class="progress-track"><div id="timerProgress"></div></div>
+        </div>
+
+        <div class="action-row">
+          <button id="startBtn" class="primary">▶ Start</button>
+          <button id="pauseBtn">Ⅱ Pause</button>
+          <button id="resetBtn">↻ Reset</button>
+          <button id="skipBtn" class="ghost-btn">Skip</button>
+        </div>
+
+        <div class="helper-grid">
+          <article>
+            <span>STARTER PROMPT</span>
+            <p id="promptText">Open the document and write the first messy sentence.</p>
+            <button id="newPrompt" class="link-btn">New tiny start</button>
+          </article>
+          <article>
+            <span>GET UNSTUCK</span>
+            <p id="unstuckText">Pick one task and start tiny.</p>
+            <button id="helpBtn" class="link-btn">Help me start</button>
+          </article>
+        </div>
+
+        <div class="energy">
+          <div class="energy-title">How's your energy?</div>
+          <div class="energy-buttons">
+            <button data-energy="tired">Tired</button>
+            <button data-energy="okay" class="selected">Okay</button>
+            <button data-energy="energized">Energized</button>
+            <button data-energy="overwhelmed">Overwhelmed</button>
+          </div>
+          <p id="energyTip">Start with one clear task and a normal 25-minute sprint.</p>
+        </div>
+      </section>
+
+      <section class="panel tasks-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Tasks</h2>
+            <p>Deadlines are optional. You control the order.</p>
+          </div>
+        </div>
+
+        <div class="task-input-row">
+          <input id="taskInput" placeholder="e.g. revise maths notes" maxlength="200">
+          <select id="priorityInput">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <input id="deadlineInput" type="date" aria-label="Deadline">
+          <button id="addTask">＋</button>
+        </div>
+
+        <div class="sort-row">
+          <label>Arrange by
+            <select id="sortSelect">
+              <option value="smart">Smart</option>
+              <option value="deadline">Deadline</option>
+              <option value="priority">Priority</option>
+              <option value="newest">Newest added</option>
+              <option value="oldest">Oldest added</option>
+              <option value="completion">Completion</option>
+            </select>
+          </label>
+          <span id="taskSummary">0 done · 0 left</span>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+      </section>
+    </section>
+
+    <section class="panel notes-panel">
+      <div class="panel-head">
+        <div>
+          <h2>Notes / brain dump</h2>
+          <p>Put distracting thoughts here so they don't have to stay in your head.</p>
+        </div>
+        <span class="local-badge">Private · saved in this browser</span>
+      </div>
+      <div class="note-input-row">
+        <textarea id="noteInput" rows="3" maxlength="1000" placeholder="Ideas, reminders, links, random thoughts..."></textarea>
+        <div class="note-actions">
+          <button id="addNote" class="primary">＋ Add note</button>
+          <button id="clearNotes" class="ghost-btn">Clear all</button>
+        </div>
+      </div>
+      <div id="noteList" class="note-list"></div>
+    </section>
+
+    <footer>
+      <span>Free & open source · no account required · local-first</span>
+      <button id="clearData" class="danger-link">Reset all local data</button>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+# StartTiny
+
+**Start tiny. Stay focused.**
+
+StartTiny is a free, open-source, local-first anti-procrastination tool. It combines a flexible focus timer, task list, optional deadlines, task sorting, and a private brain-dump notes area.
+
+## Features
+
+- Focus and break timer
+- Quick presets: 10/2, 25/5, 40/10, 50/10
+- Custom focus and break lengths
+- Optional browser notifications
+- Tasks with priority and optional deadlines
+- Smart sorting plus manual sorting modes
+- Overdue / due-today indicators
+- Individual note creation and deletion
+- Focus mode
+- Energy check and “Help me start” prompts
+- Local browser storage — no account or backend
+
+## Run locally
+
+No build step is required.
+
+1. Download or clone the repository.
+2. Open `index.html` in a browser.
+
+For the best notification support, serve the folder from a local web server or deploy it through GitHub Pages.
+
+## GitHub Pages
+
+1. Create a public GitHub repository.
+2. Upload all files from this folder.
+3. Open **Settings → Pages**.
+4. Select **Deploy from a branch**.
+5. Choose the `main` branch and `/ (root)`.
+6. Save.
+
+GitHub will provide your public `github.io` site URL.
+
+## Privacy
+
+StartTiny does not require an account and has no server component. Tasks, notes and settings are stored in the browser's local storage. The application does not contain analytics or advertising code.
+
+## Contributing
+
+Bug reports, accessibility improvements, translations and small feature improvements are welcome. See `CONTRIBUTING.md`.
+
+## License
+
+MIT — see `LICENSE`.
